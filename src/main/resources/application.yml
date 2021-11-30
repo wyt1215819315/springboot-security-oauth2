@@ -1,0 +1,39 @@
+mybatis:
+    mapper-locations: classpath:mapper/*.xml
+    type-aliases-package: com.cheney.springboor.oauth2.dao
+security:
+    basic:
+        enabled: false
+server:
+    port: 8088
+#    ssl:
+#        key-store: classpath:pdsubiggroup.cn.jks
+#        key-store-password: xy0607..
+#        key-store-type: JKS
+spring:
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        initial-size: 3
+        jdbc-interceptors: ConnectionState;SlowQueryReport(threshold=50)
+        max-idle: 5
+        max-wait: 10000
+        min-idle: 2
+        password: 123456
+        time-between-eviction-runs-millis: 18800
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://localhost:3306/oauth2?useSSL=false&characterEncoding=UTF-8
+        username: root
+        validation-query: SELECT 1
+    redis:
+        database: 1
+        host: 127.0.0.1
+        password: ''
+        pool:
+            max-active: 8
+            max-idle: 8
+            max-wait: -1
+            min-idle: 0
+        port: 6379
+        timeout: 0
+    thymeleaf:
+        prefix: classpath:templates/
